@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowOfReason.API", "FlowOfReason.API\FlowOfReason.API.csproj", "{327D4788-8186-463A-8A5A-6EA2E03E009C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6255ABB3-9630-40F9-BB72-8D0BA2812C46}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{327D4788-8186-463A-8A5A-6EA2E03E009C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{327D4788-8186-463A-8A5A-6EA2E03E009C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{327D4788-8186-463A-8A5A-6EA2E03E009C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{327D4788-8186-463A-8A5A-6EA2E03E009C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

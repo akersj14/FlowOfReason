@@ -1,0 +1,6 @@
+﻿services:
+  flowofreason:
+    image: flowofreason
+    build:
+      context: .
+      dockerfile: FlowOfReason/Dockerfile
