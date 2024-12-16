@@ -4,3 +4,9 @@
     build:
       context: .
       dockerfile: FlowOfReason/Dockerfile
+
+  flowofreason.web:
+    image: flowofreason.ui
+    build:
+      context: .
+      dockerfile: FlowOfReason.UI/Dockerfile

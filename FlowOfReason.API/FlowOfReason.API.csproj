@@ -15,4 +15,12 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="DataModels\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\FlowOfReason.Core\FlowOfReason.Core.csproj" />
+    </ItemGroup>
+
 </Project>

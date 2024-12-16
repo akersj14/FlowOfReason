@@ -26,9 +26,16 @@ people access to it.
 Via your account, you will have access to an API that allows you access to your own data. Now, this API is also
 limited and will not allow your private knowledge trees to grow beyond X size.
 
+## The UI
+
+Pages:
+
+- [ ] GraphNodeView
+- [ ] 
+
 ## TODO
 
-- [ ] Create initial API
+- [X] Create initial API
 - [ ] Create initial Data Bases using SqLite
 - [ ] Use longer term Data Bases
 - [ ] Add Authentication

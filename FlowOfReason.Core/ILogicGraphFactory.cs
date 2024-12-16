@@ -1,4 +1,4 @@
-namespace FlowOfReason.API.DataModels;
+namespace FlowOfReason.Core;
 
 public interface ILogicGraphFactory
 {
@@ -9,9 +9,6 @@ public class LogicGraphFactory : ILogicGraphFactory
 {
     public LogicGraph CreateLogicGraph()
     {
-        return new LogicGraph
-        {
-            Id = Guid.NewGuid().ToString(),
-        };
+        return new LogicGraph();
     }
 }

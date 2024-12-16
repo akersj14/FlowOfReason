@@ -1,0 +1,29 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:FlowOfReason.UI.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="vm:ExistingNodePageViewModel"
+             x:Class="FlowOfReason.UI.Views.ExistingNodePage">
+    <StackPanel Orientation="Vertical">
+        <!-- This Section is to contain the Node Information -->
+        <StackPanel Orientation="Vertical" Margin="15">
+            <TextBlock Text="{Binding Claim}" FontSize="30"></TextBlock>
+            <TextBlock Text="{Binding Explanation}" Margin="20,15,0,20"></TextBlock>
+        </StackPanel>
+        <!-- Here is a context line -->
+        <Separator/>
+        <StackPanel Orientation="Vertical" Margin="15">
+            <TextBlock Text="Challenges" FontSize="20"></TextBlock>
+            <ListBox ItemsSource="{Binding Challenges}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Text}"></TextBlock>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <TextBlock Text="This is the first defense. I reference {id123} for my support" Margin="20,15,0,0"></TextBlock>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

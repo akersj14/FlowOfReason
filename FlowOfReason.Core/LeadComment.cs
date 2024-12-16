@@ -1,8 +1,7 @@
-namespace FlowOfReason.API.DataModels;
+namespace FlowOfReason.Core;
 
-public class LeadComment : IIdentifiableData
+public class LeadComment : TrackableData
 {
-    public string Id { get; set; }
     public string OwnerId { get; set; }
     public string OwningLogicGraphNodeId { get; set; }
     public string Text { get; set; } = "";

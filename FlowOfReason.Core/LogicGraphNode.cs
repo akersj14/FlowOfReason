@@ -1,8 +1,7 @@
-namespace FlowOfReason.API.DataModels;
+namespace FlowOfReason.Core;
 
-public class LogicGraphNode : IIdentifiableData
+public class LogicGraphNode : TrackableData
 {
-    public string Id { get; set; }
     public string OwningLogicGraphId { get; set; }
     public string Argument { get; set; }
     public string Explanation { get; set; }
