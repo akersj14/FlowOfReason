@@ -6,4 +6,5 @@ public class LogicGraph : TrackableData
     public string Name { get; set; } = "";
     public List<string> NodeTypes { get; set; } = new();
     public List<string> RelationshipTypes { get; set; } = new();
+    public List<string> CommentTypes { get; set; } = new();
 }
