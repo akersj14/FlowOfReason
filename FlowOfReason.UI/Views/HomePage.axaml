@@ -1,0 +1,16 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:FlowOfReason.UI.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="vm:HomePageViewModel"
+             x:Class="FlowOfReason.UI.Views.HomePage">
+    <StackPanel Orientation="Vertical">
+        <TextBlock Text="Home" />
+        <Button Name="CreateNewGraphButton">
+            <TextBlock Text="Create New Graph" />
+        </Button>
+        
+    </StackPanel>
+</UserControl>

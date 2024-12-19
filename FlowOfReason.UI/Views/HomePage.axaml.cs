@@ -1,4 +1,5 @@
 using System.Reactive.Disposables;
+using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
@@ -6,21 +7,23 @@ using Avalonia.ReactiveUI;
 using CommunityToolkit.Mvvm.DependencyInjection;
 using FlowOfReason.UI.ViewModels;
 using ReactiveUI;
+using SkiaSharp;
 
 namespace FlowOfReason.UI.Views;
 
-public partial class UserAccountPage : ReactiveUserControl<UserAccountPageViewModel>
+public partial class HomePage : ReactiveUserControl<HomePageViewModel>
 {
-    public UserAccountPage()
+    public HomePage()
     {
         InitializeComponent();
-        DataContext = Ioc.Default.GetService<UserAccountPageViewModel>();
+        DataContext = Ioc.Default.GetService<HomePageViewModel>();
+
         this.WhenActivated(disposables =>
         {
-            this.BindCommand(ViewModel, 
-                vm => vm.SaveChanges, 
-                v => v.SaveAccountDetailsButton)
+            this.BindCommand(ViewModel, vm => vm.CreateNewGraph,
+                v => v.CreateNewGraphButton)
                 .DisposeWith(disposables);
         });
     }
+    
 }

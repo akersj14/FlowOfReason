@@ -1,4 +1,6 @@
-namespace FlowOfReason.Core;
+using FlowOfReason.Core.DataModels;
+
+namespace FlowOfReason.Core.Factories;
 
 public interface ILogicGraphNodeFactory
 {

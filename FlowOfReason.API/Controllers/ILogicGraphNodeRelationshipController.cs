@@ -1,4 +1,5 @@
 using FlowOfReason.Core;
+using FlowOfReason.Core.DataModels;
 
 namespace FlowOfReason.API.Controllers;
 

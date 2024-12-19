@@ -1,4 +1,4 @@
-namespace FlowOfReason.Core;
+namespace FlowOfReason.Core.DataModels;
 
 public class LogicGraphNode : TrackableData
 {

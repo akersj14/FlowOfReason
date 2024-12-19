@@ -2,6 +2,8 @@ using System.Text.Json.Serialization;
 using FlowOfReason.API;
 using FlowOfReason.API.Controllers;
 using FlowOfReason.Core;
+using FlowOfReason.Core.DataModels;
+using FlowOfReason.Core.Factories;
 
 var builder = WebApplication.CreateSlimBuilder(args);
 

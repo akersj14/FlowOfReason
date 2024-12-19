@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using FlowOfReason.Core;
+using FlowOfReason.Core.DataModels;
+using ReactiveUI;
 
 namespace FlowOfReason.UI.ViewModels;
 
@@ -12,13 +14,13 @@ public partial class ExistingNodePageViewModel : ViewModelBase
     public string Claim
     {
         get => _backingClaim;
-        set => SetProperty(ref _backingClaim, value);
+        set => this.RaiseAndSetIfChanged(ref _backingClaim, value);
     }
 
     public string Explanation
     {
         get => _backingExplanation;
-        set => SetProperty(ref _backingExplanation, value);
+        set => this.RaiseAndSetIfChanged(ref _backingExplanation, value);
     }
 
     public List<LeadComment> Challenges { get; } = new();

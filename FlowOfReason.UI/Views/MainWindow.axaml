@@ -10,8 +10,8 @@
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="FlowOfReason.UI"
-        RequestedThemeVariant="Dark"
-        Background="Gray">
+        RequestedThemeVariant="Light"
+        Background="White">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -32,12 +32,18 @@
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
-    <TabControl>
-        <TabItem Header="{avalonia:MaterialIconExt Kind=Person}">
-            <views:ExistingNodePage/> 
+    <TabControl Name="TabControl">
+        <TabItem Header="{avalonia:MaterialIconExt Kind=Home}">
+            <views:HomePage/> 
         </TabItem>
-        <TabItem Header="{avalonia:MaterialIconExt Kind=Graph}">
-            
+        <TabItem Header="{avalonia:MaterialIconExt Kind=Search}">
+            <views:GraphSearchPage />
+        </TabItem>
+        <TabItem Header="{avalonia:MaterialIconExt Kind=Person}">
+            <views:UserAccountPage />
+        </TabItem>
+        <TabItem Header="{avalonia:MaterialIconExt Kind=Graph}" IsVisible="{Binding IsGraphViewVisible}">
+            <views:GraphScatteredView />
         </TabItem>
     </TabControl>
 

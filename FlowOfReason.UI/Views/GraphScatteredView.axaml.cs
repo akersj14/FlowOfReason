@@ -7,11 +7,11 @@ using FlowOfReason.UI.ViewModels;
 
 namespace FlowOfReason.UI.Views;
 
-public partial class ExistingNodePage : ReactiveUserControl<ExistingNodePageViewModel>
+public partial class GraphScatteredView : ReactiveUserControl<GraphScatteredViewModel>
 {
-    public ExistingNodePage()
+    public GraphScatteredView()
     {
         InitializeComponent();
-        DataContext = Ioc.Default.GetService<ExistingNodePageViewModel>();
+        DataContext = Ioc.Default.GetService<GraphScatteredViewModel>();
     }
 }

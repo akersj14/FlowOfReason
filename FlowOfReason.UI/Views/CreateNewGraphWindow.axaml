@@ -1,0 +1,78 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:FlowOfReason.UI.ViewModels"
+        xmlns:dataModels="clr-namespace:FlowOfReason.Core.DataModels;assembly=FlowOfReason.Core"
+        xmlns:system="clr-namespace:System;assembly=System.Runtime"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:DataType="vm:CreateNewGraphWindowViewModel"
+        x:Class="FlowOfReason.UI.Views.CreateNewGraphWindow"
+        Title="CreateNewGraphWindow">
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.65" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+        <StackPanel Orientation="Vertical" Margin="40">
+            <TextBlock Text="Create a new graph" />
+            <Separator />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Graph Name" />
+                <TextBox Name="GraphNameTextBox" />
+            </StackPanel>
+            <TextBlock Text="Add Node Types" />
+            <ListBox Name="NodeTypesListBox">
+                <ListBox.DataTemplates>
+                    <DataTemplate DataType="system:String">
+                        <TextBlock Text="{Binding }"></TextBlock>
+                    </DataTemplate>
+                </ListBox.DataTemplates>
+                <ListBoxItem>
+                    <Button Name="AddNodeTypeButton">
+                        <TextBlock Text="+"></TextBlock>
+                    </Button>
+                </ListBoxItem>
+            </ListBox>
+            <TextBlock Text="Add Relationship Types" />
+            <ListBox Name="RelationshipTypesListBox">
+                <ListBox.DataTemplates>
+                    <DataTemplate DataType="system:String">
+                        <TextBlock Text="{Binding }"></TextBlock>
+                    </DataTemplate>
+                </ListBox.DataTemplates>
+                <ListBoxItem>
+                    <Button Name="AddRelationshipTypeButton">
+                        <TextBlock Text="+"></TextBlock>
+                    </Button>
+                </ListBoxItem>
+            </ListBox>
+            <TextBlock Text="Add Comment Types" />
+            <ListBox Name="CommentTypesListBox">
+                <ListBox.DataTemplates>
+                    <DataTemplate DataType="system:String">
+                        <TextBlock Text="{Binding}"></TextBlock>
+                    </DataTemplate>
+                </ListBox.DataTemplates>
+                <ListBoxItem>
+                    <Button Name="AddCommentTypeButton">
+                        <TextBlock Text="+"></TextBlock>
+                    </Button>
+                </ListBoxItem>
+            </ListBox>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button Name="SaveGraphButton" Margin="20">
+                    <TextBlock Text="Save Graph Settings"></TextBlock>
+                </Button>
+                <Button Name="CancelGraphButton" Margin="20">
+                    <TextBlock Text="Cancel"></TextBlock>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Panel>
+</Window>
