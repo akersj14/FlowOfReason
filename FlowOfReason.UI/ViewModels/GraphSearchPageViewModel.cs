@@ -29,12 +29,14 @@ public class GraphSearchPageViewModel : ViewModelBase
     
     private readonly ObservableAsPropertyHelper<bool> _isAvailable;
     private readonly ISearchingService _searchingService;
+    private readonly IContextController _contextController;
     public bool IsAvailable => _isAvailable.Value;
 
-    public GraphSearchPageViewModel(ILogicGraphDataBase logicGraphDataBase, ISearchingService searchingService)
+    public GraphSearchPageViewModel(ILogicGraphDataBase logicGraphDataBase, ISearchingService searchingService, IContextController contextController)
     {
         _searchingService = searchingService ?? throw new ArgumentNullException(nameof(searchingService));
         LogicGraphDataBase = logicGraphDataBase ?? throw new ArgumentNullException(nameof(logicGraphDataBase));
+        _contextController = contextController ?? throw new ArgumentNullException(nameof(contextController));
         _searchResults = this
             .WhenAnyValue(x => x.SearchText)
             .Throttle(TimeSpan.FromMilliseconds(800))
@@ -58,10 +60,6 @@ public class GraphSearchPageViewModel : ViewModelBase
         var graphResults = await _searchingService
             .SearchGraphs(text);
         return graphResults
-            .Select(graph => Ioc.Default.GetRequiredService<GraphSearchGraphResultItemTemplateViewModel>());
+            .Select(graph => new GraphSearchGraphResultItemTemplateViewModel(graph, _contextController));
     }
-
-    public ObservableCollection<LogicGraph> GraphsResults { get; } = new();
-    public ObservableCollection<LogicGraphNode> NodesResults { get; } = new();
-
 }

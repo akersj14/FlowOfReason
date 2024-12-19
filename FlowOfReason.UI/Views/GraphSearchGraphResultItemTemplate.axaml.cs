@@ -1,6 +1,8 @@
 using System.Reactive.Disposables;
 using Avalonia.ReactiveUI;
 using CommunityToolkit.Mvvm.DependencyInjection;
+using FlowOfReason.Core.DataModels;
+using FlowOfReason.UI.Services;
 using FlowOfReason.UI.ViewModels;
 using ReactiveUI;
 
@@ -11,7 +13,6 @@ public partial class GraphSearchGraphResultItemTemplate : ReactiveUserControl<Gr
     public GraphSearchGraphResultItemTemplate()
     {
         InitializeComponent();
-        DataContext = Ioc.Default.GetService<GraphSearchGraphResultItemTemplateViewModel>();
 
         this.WhenActivated(disposables =>
         {

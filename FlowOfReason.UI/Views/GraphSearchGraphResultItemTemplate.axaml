@@ -9,7 +9,7 @@
              x:Class="FlowOfReason.UI.Views.GraphSearchGraphResultItemTemplate">
     <StackPanel Orientation="Horizontal">
         <Button Name="GoToGraphButton">
-            <TextBlock Text="{avalonia:MaterialIconExt Kind=FolderOpen}"></TextBlock>
+            <avalonia:MaterialIconExt Kind="FolderOpen" />
         </Button>
         <TextBlock Name="GraphNameTextBlock" />
     </StackPanel>

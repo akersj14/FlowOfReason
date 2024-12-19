@@ -10,7 +10,7 @@ public class GraphScatteredViewModel : ViewModelBase
 {
     private readonly ILogicGraphDataBase _logicGraphDatabase;
     private readonly IContextController _contextController;
-    private readonly string _activeGraphId;
+    private string _activeGraphId { get; set; }
     private readonly ILogicGraphNodeDataBase _nodeDatabase;
 
     public GraphScatteredViewModel(ILogicGraphDataBase graphDataBase, ILogicGraphNodeDataBase nodeDataBase, IContextController contextController)
@@ -21,7 +21,10 @@ public class GraphScatteredViewModel : ViewModelBase
         
         _contextController.ActiveGraphId
             .ToProperty(this, x => x._activeGraphId);
-        
+        ActiveGraphId = _contextController.ActiveGraphId;
+
     }
-    
+
+    public IObservable<string> ActiveGraphId;
+
 }

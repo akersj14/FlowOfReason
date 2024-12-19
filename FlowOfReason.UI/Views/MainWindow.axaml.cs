@@ -28,12 +28,12 @@ public partial class MainWindow : ReactiveWindow<MainWindowViewModel>
     }
     
     private async Task DoShowCreateNewGraphDialogAsync(IInteractionContext<CreateNewGraphWindowViewModel,
-        ReturnedCreatedGraphDialogViewModel?> interaction)
+        string?> interaction)
     {
         var dialog = new CreateNewGraphWindow();
         dialog.DataContext = interaction.Input;
 
-        var result = await dialog.ShowDialog<ReturnedCreatedGraphDialogViewModel?>(this);
+        var result = await dialog.ShowDialog<string>(this);
         interaction.SetOutput(result);
     }
 }

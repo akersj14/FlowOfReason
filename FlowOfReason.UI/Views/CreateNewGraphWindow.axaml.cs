@@ -1,7 +1,6 @@
+using System;
 using System.Reactive.Disposables;
-using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
+using Avalonia.Interactivity;
 using Avalonia.ReactiveUI;
 using CommunityToolkit.Mvvm.DependencyInjection;
 using FlowOfReason.UI.ViewModels;
@@ -18,36 +17,33 @@ public partial class CreateNewGraphWindow : ReactiveWindow<CreateNewGraphWindowV
 
         this.WhenActivated(disposables =>
         {
+            
             this.Bind(ViewModel, 
                     vm => vm.GraphName, 
                     v => v.GraphNameTextBox.Text)
                 .DisposeWith(disposables);
             this.Bind(ViewModel, 
-                    vm => vm.RelationshipTypes, 
-                    v => v.RelationshipTypesListBox.ItemsSource)
+                    vm => vm.NodeTypesText, 
+                    v => v.NodeTypesTextBox.Text)
                 .DisposeWith(disposables);
             this.Bind(ViewModel, 
-                    vm => vm.NodeTypes, 
-                    v => v.NodeTypesListBox.ItemsSource)
+                    vm => vm.RelationshipTypesText, 
+                    v => v.RelationshipTypesTextBox.Text)
                 .DisposeWith(disposables);
             this.Bind(ViewModel, 
-                    vm => vm.CommentTypes, 
-                    v => v.CommentTypesListBox.ItemsSource)
+                    vm => vm.CommentTypesText, 
+                    v => v.CommentTypesTextBox.Text)
                 .DisposeWith(disposables);
-            
-            this.BindCommand(ViewModel,
-                vm => vm.AddNodeType,
-                v => v.AddNodeTypeButton)
-                .DisposeWith(disposables);
-            this.BindCommand(ViewModel,
-                vm => vm.AddRelationshipType,
-                v => v.AddRelationshipTypeButton)
-                .DisposeWith(disposables);
-            this.BindCommand(ViewModel,
-                vm => vm.AddCommentType,
-                v => v.AddCommentTypeButton)
-                .DisposeWith(disposables);
-            this.BindCommand(ViewModel, vm => vm.SaveGraph)
         });
     }
+    private void CancelButtonClicked(object sender, RoutedEventArgs e)
+    {
+        Close("Cancel Clicked!");
+    }
+    private void SaveButtonClicked(object sender, RoutedEventArgs e)
+    {
+        ViewModel.SaveGraph.Execute();
+        Close("Save Clicked!");
+    }
+    
 }

@@ -16,34 +16,22 @@ public partial class MainWindowViewModel : ViewModelBase
     public MainWindowViewModel(IInteractionsService interactionsService, ILogicGraphFactory logicGraphFactory, ILogicGraphDataBase logicGraphDataBase, IUserAccountService userAccountService)
     {
         
-        ShowCreateGraphDialog = new Interaction<CreateNewGraphWindowViewModel, ReturnedCreatedGraphDialogViewModel?>();
+        ShowCreateGraphDialog = new Interaction<CreateNewGraphWindowViewModel, string?>();
         this.WhenActivated(disposable =>
         {
             interactionsService.CreateGraphDialogStart.Do(async i =>
-                    {
-                        var createGraph = new CreateNewGraphWindowViewModel();
-            
-                        var result = await ShowCreateGraphDialog.Handle(createGraph);
-                        if (result == null)
-                        {
-                            Debug.WriteLine("Ended Creating Graph Process without Creating Graph.");
-                            return;
-                        }
-            
-                        var graph = result.LogicGraph;
-                        Debug.Write($"Created new logic graph: {graph.Id}");
-            
-                        // var graph = logicGraphFactory.CreateLogicGraph();
-                        // graph.Name = "New Graph";
-                        await logicGraphDataBase.AddAsync(graph);
-                        var currentUser = userAccountService.GetCurrentUser();
-                        currentUser.OwnedLogicGraphs.Add(graph.Id);
-                        userAccountService.UpdateUser(currentUser);
-                    }).Subscribe().DisposeWith(disposable);
+            {
+                var createGraph =
+                    new CreateNewGraphWindowViewModel(logicGraphFactory, logicGraphDataBase, userAccountService);
+
+                var result = await ShowCreateGraphDialog.Handle(createGraph);
+
+                Debug.WriteLine($"Dialog Ended with result {result}");
+            }).Subscribe().DisposeWith(disposable);
         });
     }
     
-    public Interaction<CreateNewGraphWindowViewModel, ReturnedCreatedGraphDialogViewModel?> ShowCreateGraphDialog { get; }
+    public Interaction<CreateNewGraphWindowViewModel, string?> ShowCreateGraphDialog { get; }
 
     
 }
